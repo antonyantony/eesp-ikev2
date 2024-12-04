@@ -1758,11 +1758,11 @@ replace whenever the peer received new Sub SA.<a href="#section-3.6.2-3" class="
         <h3 id="name-session-id">
 <a href="#section-3.7" class="section-number selfRef">3.7. </a><a href="#name-session-id" class="section-name selfRef">Session ID</a>
         </h3>
-<p id="section-3.7-1">The Session ID attribute is a multi-purpose attribute with mutually
-exclusive values. The initiator MUST propose one value in Child SA
-proposal, and the responder MUST either agree with the
-proposed value or respond with an error INVALID_SESSION_ID message
-indicating a supported value.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
+<p id="section-3.7-1">The Session ID is a multi-purpose attribute with mutually
+exclusive values. The initiator MUST propose a single value in the
+Child SA proposal, Transform EESPSSID (Value). The responder MUST
+either accept the proposed value or reject it with an
+INVALID_SESSION_ID error message, indicating a supported value.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
 </section>
 </section>
 </div>
@@ -1770,11 +1770,12 @@ indicating a supported value.<a href="#section-3.7-1" class="pilcrow">¶</a></p>
       <h2 id="name-udp-encapsulation-for-eesp">
 <a href="#section-4" class="section-number selfRef">4. </a><a href="#name-udp-encapsulation-for-eesp" class="section-name selfRef">UDP Encapsulation for EESP</a>
       </h2>
-<p id="section-4-1">UDP encapsulation is similar to ESP UDP encapsulation with one
-difference on source port specified in <span>[<a href="#RFC3948" class="cite xref">RFC3948</a>]</span> the EESP
-allows to use different source port than IKE as specified in
+<p id="section-4-1">UDP encapsulation is similar to ESP UDP encapsulation,
+specified in <span>[<a href="#RFC3948" class="cite xref">RFC3948</a>]</span>, with one
+difference on source port. The EESP
+allows use fo different source port than IKE as specified in
 <span>[<a href="#RFC3947" class="cite xref">RFC3947</a>]</span>, <span>[<a href="#RFC7296" class="cite xref">RFC7296</a>]</span> for Address and Port Agility and ECMP
-when using Sub SA. The Sub SA ID 0, MUST be on using the identical
+when using Sub SA. The Sub SA ID 0, MUST use the identical
 source and destination ports as the IKE SA. Other Sub SA may use
 use different source port while destination port 4500.<a href="#section-4-1" class="pilcrow">¶</a></p>
 </section>
@@ -1786,6 +1787,7 @@ use different source port while destination port 4500.<a href="#section-4-1" cla
 such as <span>[<a href="#PSP" class="cite xref">PSP</a>]</span>. To negotiate, the initiator sends USE_CRYPTOFFSET
 together with USE_TRANSPORT_MODE and the responder respond with the
 same. USE_CRYPTOFFSET is not supported in Tunnel mode or BEET mode.<a href="#section-5-1" class="pilcrow">¶</a></p>
+<p id="section-5-2">'<code>NOTE</code>' Add EESP draft section reference.<a href="#section-5-2" class="pilcrow">¶</a></p>
 </section>
 <section id="section-6">
       <h2 id="name-iana-considerations">

@@ -435,11 +435,11 @@ Internet-Draft           EESP IKEv2 negotiation            December 2024
 
 3.7.  Session ID
 
-   The Session ID attribute is a multi-purpose attribute with mutually
-   exclusive values.  The initiator MUST propose one value in Child SA
-   proposal, and the responder MUST either agree with the proposed value
-   or respond with an error INVALID_SESSION_ID message indicating a
-   supported value.
+   The Session ID is a multi-purpose attribute with mutually exclusive
+   values.  The initiator MUST propose a single value in the Child SA
+   proposal, Transform EESPSSID (Value).  The responder MUST either
+   accept the proposed value or reject it with an INVALID_SESSION_ID
+   error message, indicating a supported value.
 
 
 
@@ -452,13 +452,13 @@ Internet-Draft           EESP IKEv2 negotiation            December 2024
 
 4.  UDP Encapsulation for EESP
 
-   UDP encapsulation is similar to ESP UDP encapsulation with one
-   difference on source port specified in [RFC3948] the EESP allows to
-   use different source port than IKE as specified in [RFC3947],
+   UDP encapsulation is similar to ESP UDP encapsulation, specified in
+   [RFC3948], with one difference on source port.  The EESP allows use
+   fo different source port than IKE as specified in [RFC3947],
    [RFC7296] for Address and Port Agility and ECMP when using Sub SA.
-   The Sub SA ID 0, MUST be on using the identical source and
-   destination ports as the IKE SA.  Other Sub SA may use use different
-   source port while destination port 4500.
+   The Sub SA ID 0, MUST use the identical source and destination ports
+   as the IKE SA.  Other Sub SA may use use different source port while
+   destination port 4500.
 
 5.  EESP Crypt Offset Option
 
@@ -466,6 +466,8 @@ Internet-Draft           EESP IKEv2 negotiation            December 2024
    as [PSP].  To negotiate, the initiator sends USE_CRYPTOFFSET together
    with USE_TRANSPORT_MODE and the responder respond with the same.
    USE_CRYPTOFFSET is not supported in Tunnel mode or BEET mode.
+
+   'NOTE' Add EESP draft section reference.
 
 6.  IANA Considerations
 
@@ -488,8 +490,6 @@ Internet-Draft           EESP IKEv2 negotiation            December 2024
 
    This document defines new transforms in "IKEv2 Transform Type Values"
    registry, [IKEv2-Transforms]
-
-
 
 
 
