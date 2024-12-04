@@ -10,7 +10,7 @@ Security Payload (EESP)  IKEv2 draft document.
 
 
 * Laest Copy
-The latest version of the draft can be accessed in HTML format at the following location:
+The latest version of the draft in HTML format is at:
 - [[https://klassert.github.io/eesp-ikev2/draft-klassert-ipsecme-eesp-ikev2-latest.html][Editor's Copy]]
 # above URL is replaced by .github/workflows/generate.yaml
 # sed -i "s|klassert.github.io/eesp-ikev2|$USERNAME.github.io/$REPO_NAME|g"

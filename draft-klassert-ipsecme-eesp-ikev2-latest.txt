@@ -88,9 +88,10 @@ Table of Contents
      6.1.  Changes in the Existing IKEv2 Registries  . . . . . . . .   9
        6.1.1.  IKEv2 Security Protocol Identifiers registry  . . . .   9
        6.1.2.  IKEv2 Transform Type Values registry  . . . . . . . .   9
-       6.1.3.  Extending ESP with EESP . . . . . . . . . . . . . . .  10
-       6.1.4.  Notify Message Error Types  . . . . . . . . . . . . .  10
-     6.2.  New Registries  . . . . . . . . . . . . . . . . . . . . .  10
+       6.1.3.  IKEv2 Notify Message Status Types registry. . . . . .  10
+       6.1.4.  Extending ESP with EESP . . . . . . . . . . . . . . .  10
+       6.1.5.  Notify Message Error Types  . . . . . . . . . . . . .  10
+     6.2.  New Registries  . . . . . . . . . . . . . . . . . . . . .  11
        6.2.1.  EESP Session ID registry  . . . . . . . . . . . . . .  11
        6.2.2.  EESP Flow ID registry . . . . . . . . . . . . . . . .  11
    7.  Implementation Status . . . . . . . . . . . . . . . . . . . .  12
@@ -100,7 +101,6 @@ Table of Contents
    11. Informative References  . . . . . . . . . . . . . . . . . . .  14
    Appendix A.  Additional Stuff . . . . . . . . . . . . . . . . . .  16
    Authors' Addresses  . . . . . . . . . . . . . . . . . . . . . . .  16
-
 
 
 
@@ -463,9 +463,9 @@ Internet-Draft           EESP IKEv2 negotiation            December 2024
 5.  EESP Crypt Offset Option
 
    This option is typically used for within one Datacenter use case such
-   as [PSP].  To negotiate, the initiator sends USE_CRYPT_OFFSET
-   together with USE_TRANSPORT_MODE and the responder respond with the
-   same.  USE_CRYPT_OFFSET is not supported in Tunnel mode or BEET mode.
+   as [PSP].  To negotiate, the initiator sends USE_CRYPTOFFSET together
+   with USE_TRANSPORT_MODE and the responder respond with the same.
+   USE_CRYPTOFFSET is not supported in Tunnel mode or BEET mode.
 
 6.  IANA Considerations
 
@@ -520,7 +520,17 @@ Internet-Draft           EESP IKEv2 negotiation            December 2024
 
                                   Table 3
 
-6.1.3.  Extending ESP with EESP
+6.1.3.  IKEv2 Notify Message Status Types registry.
+
+         +=======+============================+=================+
+         | Value | Notify Message Status Type | Reference       |
+         +=======+============================+=================+
+         | TBD8  | USE_CRYPTOFFSET            | [this document] |
+         +-------+----------------------------+-----------------+
+
+                                 Table 4
+
+6.1.4.  Extending ESP with EESP
 
    Several tables in [IKEv2-IANA] that specify ESP as protocol should be
    extended with EESP.  Should we list each table one by one or specify
@@ -529,7 +539,7 @@ Internet-Draft           EESP IKEv2 negotiation            December 2024
 
    Changes the "Used In" column for the existing allocations as follows;
 
-6.1.4.  Notify Message Error Types
+6.1.5.  Notify Message Error Types
 
    This document defines new Notify Message types in the "IKEv2 Notify
    Message Error Types" registry:
@@ -542,17 +552,7 @@ Internet-Draft           EESP IKEv2 negotiation            December 2024
          | [TBD3] | INVALID_SUB_SA            | [this document] |
          +--------+---------------------------+-----------------+
 
-                                 Table 4
-
-6.2.  New Registries
-
-   A new set of registries is created for EESP-IKEv2 on IKEv2 parameters
-   page [IKEv2-IANA].  The terms Reserved, Expert Review and Private Use
-   are to be applied as defined in [RFC8126]
-
-
-
-
+                                 Table 5
 
 
 
@@ -561,6 +561,12 @@ Klassert, et al.           Expires 7 June 2025                 [Page 10]
 
 Internet-Draft           EESP IKEv2 negotiation            December 2024
 
+
+6.2.  New Registries
+
+   A new set of registries is created for EESP-IKEv2 on IKEv2 parameters
+   page [IKEv2-IANA].  The terms Reserved, Expert Review and Private Use
+   are to be applied as defined in [RFC8126]
 
 6.2.1.  EESP Session ID registry
 
@@ -586,7 +592,7 @@ Internet-Draft           EESP IKEv2 negotiation            December 2024
               |          3 | SUB_SA_SN    | [this document] |
               +------------+--------------+-----------------+
 
-                                  Table 5
+                                  Table 6
 
 6.2.2.  EESP Flow ID registry
 
@@ -599,12 +605,6 @@ Internet-Draft           EESP IKEv2 negotiation            December 2024
    *  Description: EESP Flow Identifier
 
    *  Reference: This document
-
-
-
-
-
-
 
 
 
@@ -630,7 +630,7 @@ Internet-Draft           EESP IKEv2 negotiation            December 2024
                 |       3 | SUB_SA_16   | [this document] |
                 +---------+-------------+-----------------+
 
-                                  Table 6
+                                  Table 7
 
 7.  Implementation Status
 

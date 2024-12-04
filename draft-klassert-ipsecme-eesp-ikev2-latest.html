@@ -1392,10 +1392,13 @@ type EESP.<a href="#section-abstract-2" class="pilcrow">¶</a></p>
                     <p id="section-toc.1-1.6.2.1.2.2.1"><a href="#section-6.1.2" class="auto internal xref">6.1.2</a>.  <a href="#name-ikev2-transform-type-values" class="internal xref">IKEv2 Transform Type Values registry</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1.2.3">
-                    <p id="section-toc.1-1.6.2.1.2.3.1"><a href="#section-6.1.3" class="auto internal xref">6.1.3</a>.  <a href="#name-extending-esp-with-eesp" class="internal xref">Extending ESP with EESP</a></p>
+                    <p id="section-toc.1-1.6.2.1.2.3.1"><a href="#section-6.1.3" class="auto internal xref">6.1.3</a>.  <a href="#name-ikev2-notify-message-status" class="internal xref">IKEv2 Notify Message Status Types registry.</a></p>
 </li>
                   <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1.2.4">
-                    <p id="section-toc.1-1.6.2.1.2.4.1"><a href="#section-6.1.4" class="auto internal xref">6.1.4</a>.  <a href="#name-notify-message-error-types" class="internal xref">Notify Message Error Types</a></p>
+                    <p id="section-toc.1-1.6.2.1.2.4.1"><a href="#section-6.1.4" class="auto internal xref">6.1.4</a>.  <a href="#name-extending-esp-with-eesp" class="internal xref">Extending ESP with EESP</a></p>
+</li>
+                  <li class="compact toc ulBare ulEmpty" id="section-toc.1-1.6.2.1.2.5">
+                    <p id="section-toc.1-1.6.2.1.2.5.1"><a href="#section-6.1.5" class="auto internal xref">6.1.5</a>.  <a href="#name-notify-message-error-types" class="internal xref">Notify Message Error Types</a></p>
 </li>
                 </ul>
 </li>
@@ -1780,9 +1783,9 @@ use different source port while destination port 4500.<a href="#section-4-1" cla
 <a href="#section-5" class="section-number selfRef">5. </a><a href="#name-eesp-crypt-offset-option" class="section-name selfRef">EESP Crypt Offset Option</a>
       </h2>
 <p id="section-5-1">This option is typically used for within one Datacenter use case
-such as <span>[<a href="#PSP" class="cite xref">PSP</a>]</span>. To negotiate, the initiator sends USE_CRYPT_OFFSET
+such as <span>[<a href="#PSP" class="cite xref">PSP</a>]</span>. To negotiate, the initiator sends USE_CRYPTOFFSET
 together with USE_TRANSPORT_MODE and the responder respond with the
-same. USE_CRYPT_OFFSET is not supported in Tunnel mode or BEET mode.<a href="#section-5-1" class="pilcrow">¶</a></p>
+same. USE_CRYPTOFFSET is not supported in Tunnel mode or BEET mode.<a href="#section-5-1" class="pilcrow">¶</a></p>
 </section>
 <section id="section-6">
       <h2 id="name-iana-considerations">
@@ -1861,22 +1864,44 @@ same. USE_CRYPT_OFFSET is not supported in Tunnel mode or BEET mode.<a href="#se
           </table>
 </section>
 <section id="section-6.1.3">
-          <h4 id="name-extending-esp-with-eesp">
-<a href="#section-6.1.3" class="section-number selfRef">6.1.3. </a><a href="#name-extending-esp-with-eesp" class="section-name selfRef">Extending ESP with EESP</a>
+          <h4 id="name-ikev2-notify-message-status">
+<a href="#section-6.1.3" class="section-number selfRef">6.1.3. </a><a href="#name-ikev2-notify-message-status" class="section-name selfRef">IKEv2 Notify Message Status Types registry.</a>
           </h4>
-<p id="section-6.1.3-1">Several tables in <span>[<a href="#IKEv2-IANA" class="cite xref">IKEv2-IANA</a>]</span> that specify ESP as protocol
-should be extended with EESP. Should we list each table one by one or
-specify as replace ESP, with ESP, EESP.e.g in the Transform Type Values,
-replace 'IKE and ESP' with 'IKE, ESP, and EESP'<a href="#section-6.1.3-1" class="pilcrow">¶</a></p>
-<p id="section-6.1.3-2">Changes the "Used In" column for the existing allocations as follows;<a href="#section-6.1.3-2" class="pilcrow">¶</a></p>
-</section>
-<section id="section-6.1.4">
-          <h4 id="name-notify-message-error-types">
-<a href="#section-6.1.4" class="section-number selfRef">6.1.4. </a><a href="#name-notify-message-error-types" class="section-name selfRef">Notify Message Error Types</a>
-          </h4>
-<p id="section-6.1.4-1">This document defines new Notify Message types in the "IKEv2 Notify Message Error Types" registry:<a href="#section-6.1.4-1" class="pilcrow">¶</a></p>
 <table class="center" id="table-4">
             <caption><a href="#table-4" class="selfRef">Table 4</a></caption>
+<thead>
+              <tr>
+                <th class="text-left" rowspan="1" colspan="1">Value</th>
+                <th class="text-left" rowspan="1" colspan="1">Notify Message Status Type</th>
+                <th class="text-left" rowspan="1" colspan="1">Reference</th>
+              </tr>
+            </thead>
+            <tbody>
+              <tr>
+                <td class="text-left" rowspan="1" colspan="1">TBD8</td>
+                <td class="text-left" rowspan="1" colspan="1">USE_CRYPTOFFSET</td>
+                <td class="text-left" rowspan="1" colspan="1">[this document]</td>
+              </tr>
+            </tbody>
+          </table>
+</section>
+<section id="section-6.1.4">
+          <h4 id="name-extending-esp-with-eesp">
+<a href="#section-6.1.4" class="section-number selfRef">6.1.4. </a><a href="#name-extending-esp-with-eesp" class="section-name selfRef">Extending ESP with EESP</a>
+          </h4>
+<p id="section-6.1.4-1">Several tables in <span>[<a href="#IKEv2-IANA" class="cite xref">IKEv2-IANA</a>]</span> that specify ESP as protocol
+should be extended with EESP. Should we list each table one by one or
+specify as replace ESP, with ESP, EESP.e.g in the Transform Type Values,
+replace 'IKE and ESP' with 'IKE, ESP, and EESP'<a href="#section-6.1.4-1" class="pilcrow">¶</a></p>
+<p id="section-6.1.4-2">Changes the "Used In" column for the existing allocations as follows;<a href="#section-6.1.4-2" class="pilcrow">¶</a></p>
+</section>
+<section id="section-6.1.5">
+          <h4 id="name-notify-message-error-types">
+<a href="#section-6.1.5" class="section-number selfRef">6.1.5. </a><a href="#name-notify-message-error-types" class="section-name selfRef">Notify Message Error Types</a>
+          </h4>
+<p id="section-6.1.5-1">This document defines new Notify Message types in the "IKEv2 Notify Message Error Types" registry:<a href="#section-6.1.5-1" class="pilcrow">¶</a></p>
+<table class="center" id="table-5">
+            <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
 <thead>
               <tr>
                 <th class="text-left" rowspan="1" colspan="1">Value</th>
@@ -1924,8 +1949,8 @@ Use are to be applied as defined in <span>[<a href="#RFC8126" class="cite xref">
               <p id="section-6.2.1-2.3.1">Reference: This document<a href="#section-6.2.1-2.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<table class="center" id="table-5">
-            <caption><a href="#table-5" class="selfRef">Table 5</a></caption>
+<table class="center" id="table-6">
+            <caption><a href="#table-6" class="selfRef">Table 6</a></caption>
 <thead>
               <tr>
                 <th class="text-right" rowspan="1" colspan="1">Session ID</th>
@@ -1975,8 +2000,8 @@ Use are to be applied as defined in <span>[<a href="#RFC8126" class="cite xref">
               <p id="section-6.2.2-2.3.1">Reference: This document<a href="#section-6.2.2-2.3.1" class="pilcrow">¶</a></p>
 </li>
           </ul>
-<table class="center" id="table-6">
-            <caption><a href="#table-6" class="selfRef">Table 6</a></caption>
+<table class="center" id="table-7">
+            <caption><a href="#table-7" class="selfRef">Table 7</a></caption>
 <thead>
               <tr>
                 <th class="text-right" rowspan="1" colspan="1">Flow ID</th>
